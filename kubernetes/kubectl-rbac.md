@@ -1,14 +1,6 @@
-# kubectl Cheat Sheet
+# kubectl Cheat Sheet > RBAC
 
-[go to Collections](README.md)
-
-## Foreword
-
-## Settings
-
-| command | Description                                         |
-| :---    | :---                                                |
-| ```export KUBE_EDITOR="nano"``` | Set default editor for kubectl |
+[go to kubectl Cheat Sheet](cheat-sheet-kubectl.md)
 
 ### Creating Roles
 

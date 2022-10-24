@@ -4,4 +4,4 @@
 
 [Git Cheat Sheet](cheat-sheet-git.md)
 
-[kubectl Cheat sheet](cheat-sheet-kubectl.md)
+[kubectl Cheat sheet](kubernetes/cheat-sheet-kubectl.md)
