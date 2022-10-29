@@ -13,3 +13,5 @@
 ## Sections
 
 [Role, RoleBinding, ClusterRole and ClusterRoleBinding](kubectl-rbac.md)
+
+[Workload](kubectl-workload.md)
