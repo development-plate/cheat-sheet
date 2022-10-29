@@ -5,7 +5,9 @@
 ### Workload
 A workload is an application running on Kubernetes. 
 
-```kubectl create deployment app-cache --image=memcached:1.6.8 --replicas=4```
+```
+kubectl create deployment app-cache --image=memcached:1.6.8 --replicas=4
+```
 
 deployment.yaml
 
@@ -33,11 +35,17 @@ spec:
 
 ### Listing Deployments and Their Pods
 
-```kubectl get deployments```
+```
+kubectl get deployments
+```
 
-```kubectl get pods```
+```
+kubectl get pods
+```
 
 ### Rendering Deployment Details
 
-```kubectl describe deployment app-cache```
+```
+kubectl describe deployment app-cache
+```
 
