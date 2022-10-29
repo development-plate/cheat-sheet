@@ -6,7 +6,9 @@
 
 command
 
-```kubectl create role read-only --verb=list,get,watch --resource=pods,deployments,services```
+```
+kubectl create role read-only --verb=list,get,watch --resource=pods,deployments,services
+```
 
 role.yaml
 
@@ -39,20 +41,26 @@ rules:
 
 command
 
-```kubectl get roles```
+```
+kubectl get roles
+```
 
 ### Rendering Role Details
 
 command
 
-```kubectl describe role read-only```
+```
+kubectl describe role read-only
+```
 
 ### Creating RoleBindings
 Roles and RoleBindings apply to a particular namespace.
 
 command
 
-```kubectl create rolebinding read-only-binding --role=read-only --user=johndoe```
+```
+kubectl create rolebinding read-only-binding --role=read-only --user=johndoe
+```
 
 RoleBinding.yaml
 ```
@@ -74,16 +82,22 @@ subjects:
 
 command
 
-```kubectl get rolebindings```
+```
+kubectl get rolebindings
+```
 
 ### Rendering RoleBinding Details
 
 command
 
-```kubectl describe rolebinding read-only-binding```
+```
+kubectl describe rolebinding read-only-binding
+```
 
 ### check a user’s permissions
 
 command
 
-```kubectl auth can-i --list --as johndoe```
+```
+kubectl auth can-i --list --as johndoe
+```
