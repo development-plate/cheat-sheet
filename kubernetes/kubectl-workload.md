@@ -30,3 +30,14 @@ spec:
       - name: memcached
         image: memcached:1.6.8
 ```
+
+### Listing Deployments and Their Pods
+
+```kubectl get deployments```
+
+```kubectl get pods```
+
+### Rendering Deployment Details
+
+```kubectl describe deployment app-cache```
+
