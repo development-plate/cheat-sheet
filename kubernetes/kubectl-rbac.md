@@ -101,3 +101,17 @@ command
 ```
 kubectl auth can-i --list --as johndoe
 ```
+
+Determine the API server endpoint and ...
+```
+kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}'
+```
+... the Secret access token of the ServiceAccount.
+```
+kubectl get secret $(kubectl get serviceaccount api-access -n apps -o jsonpath='{.secrets[0].name}') -o jsonpath='{.data.token}' -n apps | base64 --decode
+```
+
+The first command lists the Pods in the namespace '< namespace >'. The JSON output list the Pod
+```
+kubectl exec operator -n apps -- curl https://<ip-address>:6443/api/v1/namespaces/<namespace>/pods --header "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IldqRE..." --insecure
+```
