@@ -213,3 +213,58 @@ spec:
 ### Exposing logs directly from the application
 
 ![logging from application](images/logging-from-application.png)
+
+
+### Metrics Server
+
+The metrics-server fetches resource metrics from the kubelets and exposes them in the Kubernetes API server through the Metrics API for use by the HPA and VPA.
+
+__Install Metrics Server__
+
+```
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
+
+__Check Metrics Server__
+
+```
+kubectl get deployment metrics-server -n kube-system
+```
+
+__Get metrics__
+
+```
+kubectl top node
+```
+
+Hint: Error cause
+
+Source: [Kubernetes metrics-server Error – Readiness probe failed: HTTP probe failed with statuscode](https://www.scmgalaxy.com/tutorials/kubernetes-metrics-server-error-readiness-probe-failed-http-probe-failed-with-statuscode/)
+```
+kubectl logs deployment/metrics-server -n kube-system
+```
+
+```
+E0713 16:52:04.774647       1 scraper.go:139] "Failed to scrape node" err="Get \"https://172.31.12.77:10250/stats/summary?only_cpu_and_memory=true\": x509: cannot validate certificate for 172.31.12.77 because it doesn't contain any IP SANs" node="ip-172-31-12-77"
+```
+
+Steps:
+
+- Download https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+- Modify and add "- --kubelet-insecure-tls" in deployment.spec.template.spec.containers.args
+```
+...
+...
+    spec:
+      containers:
+      - args:
+        - --cert-dir=/tmp
+        - --secure-port=443
+        - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+        - --kubelet-use-node-status-port
+        - --metric-resolution=15s
+        - --kubelet-insecure-tls
+```
+- kubectl apply -f components.yaml
+- kubectl top nodes
+- kubectl top pod kube-proxy-xyz -n=kube-system
