@@ -255,7 +255,6 @@ Steps:
 - Modify and add "- --kubelet-insecure-tls" in deployment.spec.template.spec.containers.args
 ```
 ...
-...
     spec:
       containers:
       - args:
@@ -265,6 +264,7 @@ Steps:
         - --kubelet-use-node-status-port
         - --metric-resolution=15s
         - --kubelet-insecure-tls
+...
 ```
 - kubectl apply -f components.yaml
 - kubectl top nodes
