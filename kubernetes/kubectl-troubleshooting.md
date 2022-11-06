@@ -67,6 +67,7 @@ While Kubernetes does not provide a native solution for cluster-level logging, t
 - Push logs directly to a backend from within an application.
 
 __Using a node logging agent__
+
 ![logging with node agent](images/logging-with-node-agent.png)
 
 __Using a sidecar container with the logging agent__
