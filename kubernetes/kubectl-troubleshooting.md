@@ -269,3 +269,95 @@ Steps:
 - kubectl apply -f components.yaml
 - kubectl top nodes
 - kubectl top pod kube-proxy-xyz -n=kube-system
+
+### Troubleshooting Services
+
+In case you can’t reach the Pods that should map to the Service, start by ensuring that the label selector matches with the assigned labels of the Pods.
+
+```
+kubectl describe service myservice
+```
+
+```
+kubectl get pods --show-labels
+```
+
+Alternatively, you can also query the endpoints of the Service instance. Say you expected three Pods to be selected by a matching label but only two have been exposed by the Service.
+
+```
+kubectl get endpoints myservice
+```
+
+By default, the Service type is ClusterIP, which means that a Pod can be reached through the Service only if queried from the same node inside of the cluster.
+
+```
+$ kubectl get services
+NAME         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+myservice    ClusterIP   10.99.155.165   <none>        80/TCP    15m
+
+$ kubectl run tmp --image=busybox -it --rm -- wget -O- 10.99.155.165:80
+```
+
+Finally, check if the port mapping from the target port of the Service to the container port of the Pod is configured correctly.
+
+```
+$ kubectl get service myapp -o yaml | grep targetPort:
+    targetPort: 80
+$ kubectl get pods myapp-68bf896d89-qfhlv -o yaml | grep containerPort:
+    - containerPort: 80
+```
+
+### Troubleshooting Control Plane Nodes
+
+Rendering cluster information. For a detailed view of the cluster logs, append the dump subcommand.
+
+```
+kubectl cluster-info
+kubectl cluster-info dump
+```
+
+### Inspecting control plane components
+
+```
+kubectl get pods -n kube-system
+```
+
+```
+kubectl logs kube-apiserver-kubemaster -n kube-system
+```
+
+### Troubleshooting Worker Nodes
+
+```
+kubectl get nodes
+```
+The “NotReady” state means that the node is unused and will accumulate operational costs without actually scheduling workload.
+
+- Insufficient resources: The node may be low on memory or disk space.
+- Issues with the kubelet process: The process may have crashed or stopped on the node. Therefore, it cannot communicate with the API server running on any of the control plane nodes anymore.
+- Issues with kube-proxy: The Pod running kube-proxy is responsible for network communication from within the cluster and from the outside. The Pod transitioned into a nonfunctional state.
+
+On node:
+```
+# Number of processes
+top
+
+# Available disk space
+df-h 
+```
+
+__Checking the kubelet process__
+
+```
+systemctl status kubelet
+
+journalctl -u kubelet.service
+
+systemctl restart kubelet
+```
+
+__Checking the certificate__
+
+```
+openssl x509 -in /var/lib/kubelet/pki/kubelet.crt -text
+```
