@@ -17,3 +17,6 @@
 [Workload](kubectl-workload.md)
 
 [Troubleshooting](kubectl-troubleshooting.md)
+
+## Links, books
+1. [Certified Kubernetes Administrator (CKA) Study Guide](https://www.amazon.com/-/de/dp/1098107225)

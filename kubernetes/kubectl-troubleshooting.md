@@ -358,6 +358,8 @@ systemctl restart kubelet
 
 __Checking the certificate__
 
+Sometimes, the certificate used by the kubelet can expire. Make sure that the values for the attributes Issuer and Not After are correct:
+
 ```
 openssl x509 -in /var/lib/kubelet/pki/kubelet.crt -text
 ```
