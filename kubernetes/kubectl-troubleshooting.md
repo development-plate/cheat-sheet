@@ -363,3 +363,4 @@ Sometimes, the certificate used by the kubelet can expire. Make sure that the va
 ```
 openssl x509 -in /var/lib/kubelet/pki/kubelet.crt -text
 ```
+
