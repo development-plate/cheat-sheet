@@ -331,3 +331,32 @@ Verify
 ```
 kubectl exec backend -n magic -- ls /var/app/ssh-privatekey
 ```
+
+### Identifying the node running the Pod
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine
+  namespace: restricted
+spec:
+  containers:
+  - name: alpine
+    image: alpine:3.15.0
+    args:
+	- sh
+	- -c
+	- 'while sleep 3600; do :; done'
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "1"
+      limits:
+        memory: "1024Mi"
+        cpu: "2.5"
+```
+
+```
+kubectl get pod alpine -n restricted -o yaml | grep nodeName:
+```
