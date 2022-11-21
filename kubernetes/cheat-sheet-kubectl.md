@@ -23,6 +23,8 @@ kubectl [command] [TYPE] [NAME] [flags]
 
 [Configuration](kubectl-configuration.md)
 
+[Secrets, Security Context](kubectl-secrets.md)
+
 [Workload](kubectl-workload.md)
 
 [Troubleshooting](kubectl-troubleshooting.md)
