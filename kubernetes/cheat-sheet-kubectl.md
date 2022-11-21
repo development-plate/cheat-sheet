@@ -31,3 +31,4 @@ kubectl [command] [TYPE] [NAME] [flags]
 
 ## Links, books
 1. [Certified Kubernetes Administrator (CKA) Study Guide](https://www.amazon.com/-/de/dp/1098107225)
+2. [Certified Kubernetes Application Developer (CKAD) Study Guide](https://www.amazon.com/-/de/dp/1492083739)
