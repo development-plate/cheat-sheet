@@ -1,4 +1,4 @@
-# kubectl Cheat Sheet > Workload
+# kubectl Cheat Sheet > Configuration
 
 [go to kubectl Cheat Sheet](cheat-sheet-kubectl.md)
 
@@ -123,4 +123,30 @@ Result
 HOSTNAME=configured-pod
 DATABASE_URL=jdbc:postgresql://localhost/test
 ...
+```
+
+### Mounting a ConfigMap as Volume
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configured-pod
+spec:
+  containers:
+  - image: nginx:1.19.0
+    name: app
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/config
+  volumes:
+  - name: config-volume
+    configMap:
+      name: db-config
+```
+
+To verify
+
+```text
+kubectl exec -it configured-pod -- /bin/sh
 ```
