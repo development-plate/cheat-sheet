@@ -9,6 +9,16 @@ kubectl is the primary tool to interact with the Kubernetes clusters from the co
 ```
 kubectl [command] [TYPE] [NAME] [flags]
 ```
+### comand
+see [https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
+
+## Install bash-completion
+
+Source: [https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#enable-shell-autocompletion](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#enable-shell-autocompletion)
+
+```text
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+```
 
 ## Settings
 
