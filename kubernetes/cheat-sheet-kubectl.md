@@ -43,9 +43,11 @@ echo 'source <(kubectl completion bash)' >>~/.bashrc
 
 [Workload](kubectl-workload.md)
 
+[Multi-Container Pods](kubectl-multiple-containers.md)
+
 [Troubleshooting](kubectl-troubleshooting.md)
 
-## Links, books
+## Useful links and books
 
 1. [Certified Kubernetes Administrator (CKA) Study Guide](https://www.amazon.com/-/de/dp/1098107225)
 2. [Certified Kubernetes Application Developer (CKAD) Study Guide](https://www.amazon.com/-/de/dp/1492083739)
