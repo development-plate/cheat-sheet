@@ -49,6 +49,8 @@ echo 'source <(kubectl completion bash)' >>~/.bashrc
 
 [Pod Design](kubectl-pod-design.md)
 
+[Services & Networking](kubectl-service-networking.md)
+
 [Troubleshooting](kubectl-troubleshooting.md)
 
 ## Useful links and books
