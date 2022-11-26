@@ -45,6 +45,10 @@ echo 'source <(kubectl completion bash)' >>~/.bashrc
 
 [Multi-Container Pods](kubectl-multiple-containers.md)
 
+[Observability](kubectl-observability.md)
+
+[Pod Design](kubectl-pod-design.md)
+
 [Troubleshooting](kubectl-troubleshooting.md)
 
 ## Useful links and books
