@@ -33,6 +33,12 @@ echo 'source <(kubectl completion bash)' >>~/.bashrc
 | ```export KUBE_EDITOR="nano"``` | Set default editor for kubectl |
 | ```kubectl config set-context --current --namespace=business``` | Set default namespace |
 
+## Hints
+With those parameters '--dry-run=client -o yaml' you see the generated yaml file.
+```text
+kubectl run task3pod --image=busybox --dry-run=client -o yaml -- sleep infinity
+```
+
 ## Sections
 
 [Role, RoleBinding, ClusterRole and ClusterRoleBinding](kubectl-rbac.md)
