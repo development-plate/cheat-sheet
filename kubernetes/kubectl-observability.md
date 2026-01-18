@@ -1,6 +1,6 @@
 # kubectl Cheat Sheet > Observability
 
-[go to kubectl Cheat Sheet](cheat-sheet-kubectl.md)
+[go to kubectl Cheat Sheet](kubectl-cheat-sheet.md)
 
 ## Observability
 

@@ -1,6 +1,6 @@
 # kubectl Cheat Sheet > Troubleshooting
 
-[go to kubectl Cheat Sheet](cheat-sheet-kubectl.md)
+[go to kubectl Cheat Sheet](kubectl-cheat-sheet.md)
 
 ## Get a Shell to a Running Container
 

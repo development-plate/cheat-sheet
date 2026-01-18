@@ -1,6 +1,6 @@
 # kubectl Cheat Sheet > Secrets
 
-[go to kubectl Cheat Sheet](cheat-sheet-kubectl.md)
+[go to kubectl Cheat Sheet](kubectl-cheat-sheet.md)
 
 ## Secrets
 

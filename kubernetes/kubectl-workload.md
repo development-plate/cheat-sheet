@@ -1,6 +1,6 @@
 # kubectl Cheat Sheet > Workload
 
-[go to kubectl Cheat Sheet](cheat-sheet-kubectl.md)
+[go to kubectl Cheat Sheet](kubectl-cheat-sheet.md)
 
 ## Workload
 A workload is an application running on Kubernetes. 
